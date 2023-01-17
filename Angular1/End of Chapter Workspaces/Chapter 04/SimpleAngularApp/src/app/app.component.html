@@ -1,0 +1,5 @@
+<app-header (pageRequested)="onPageChange($event)"></app-header>
+<app-page1 *ngIf="currentPage == 1"></app-page1>
+<app-page2 *ngIf="currentPage == 2"></app-page2>
+<app-page3 *ngIf="currentPage == 3"></app-page3>
+<app-footer></app-footer>
