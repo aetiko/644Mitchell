@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 
 @Component({
@@ -10,12 +10,16 @@ export class HeaderComponent implements OnInit {
 
   pageRequested = 1;
 
+  @Output()
+  pageChangedEvent = new EventEmitter();
+
   ngOnInit() {
   }
 
   onPageChange(page: number) {
     this.pageRequested = page;
     // console.log(this.pageRequested);
+    this.pageChangedEvent.emit();
   }
 
 }

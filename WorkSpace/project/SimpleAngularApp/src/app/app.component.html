@@ -1,11 +1,12 @@
 <!--Using selector from page1 to show its content-->
 
 
-<app-header #headerComponent></app-header>
-<app-page1 *ngIf="headerComponent.pageRequested === 1"></app-page1>
-<app-page2 *ngIf="headerComponent.pageRequested === 2"></app-page2>
-<app-page3 *ngIf="headerComponent.pageRequested === 3"></app-page3>
-<app-footer></app-footer>
+<app-header (pageChangedEvent)="incrementHitCounter()" #headerComponent></app-header>
+<app-page1 [hidden]="headerComponent.pageRequested === 1"></app-page1>
+<app-page2 [hidden]="headerComponent.pageRequested === 2" #page2></app-page2>
+<app-page3 [hidden]="headerComponent.pageRequested === 3"></app-page3>
+<app-footer #footer [lastAccessed] = "startTime"></app-footer>
+<button (click)="updateLastAccess()">Update last accessed</button>
 
 <!--<app-header #headerComponent></app-header>-->
 <!--<app-page1 [hidden]="headerComponent.pageRequested === 1"></app-page1>-->
